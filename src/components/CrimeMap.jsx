@@ -1,0 +1,131 @@
+import React, { useEffect, useRef, useState } from 'react';
+import { MapContainer, TileLayer, GeoJSON, useMap } from 'react-leaflet';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+
+// Fix for default marker icons
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon-2x.png',
+  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
+});
+
+const Legend = () => {
+  const map = useMap();
+  
+  useEffect(() => {
+    const legend = L.control({ position: 'bottomright' });
+    
+    legend.onAdd = () => {
+      const div = L.DomUtil.create('div', 'legend');
+      div.innerHTML = `
+        <div style="background: white; padding: 12px 16px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); font-family: system-ui, sans-serif;">
+          <div style="font-weight: 600; font-size: 12px; color: #334155; margin-bottom: 8px;">Tingkat Kriminalitas</div>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="width: 16px; height: 16px; background: #ef4444; border-radius: 4px; display: inline-block;"></span>
+              <span style="font-size: 11px; color: #64748b;">Tinggi</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="width: 16px; height: 16px; background: #f59e0b; border-radius: 4px; display: inline-block;"></span>
+              <span style="font-size: 11px; color: #64748b;">Sedang</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="width: 16px; height: 16px; background: #22c55e; border-radius: 4px; display: inline-block;"></span>
+              <span style="font-size: 11px; color: #64748b;">Rendah</span>
+            </div>
+          </div>
+        </div>
+      `;
+      return div;
+    };
+    
+    legend.addTo(map);
+    
+    return () => {
+      legend.remove();
+    };
+  }, [map]);
+  
+  return null;
+};
+
+const CrimeMap = ({ geoJsonData, onRegionClick, selectedRegion }) => {
+  const [hoveredRegion, setHoveredRegion] = useState(null);
+  const geoJsonRef = useRef(null);
+
+  const style = (feature) => {
+    const isSelected = selectedRegion?.properties?.id === feature.properties.id;
+    const isHovered = hoveredRegion?.properties?.id === feature.properties.id;
+    
+    return {
+      fillColor: feature.properties.color,
+      weight: isSelected ? 3 : isHovered ? 2 : 1,
+      opacity: 1,
+      color: isSelected ? '#1e293b' : isHovered ? '#475569' : '#94a3b8',
+      fillOpacity: isSelected ? 0.8 : isHovered ? 0.7 : 0.5,
+    };
+  };
+
+  const onEachFeature = (feature, layer) => {
+    layer.on({
+      click: (e) => {
+        L.DomEvent.stopPropagation(e);
+        onRegionClick(feature);
+      },
+      mouseover: (e) => {
+        setHoveredRegion(feature);
+        const layer = e.target;
+        layer.setStyle({
+          weight: 2,
+          color: '#475569',
+          fillOpacity: 0.7,
+        });
+        
+        // Show tooltip
+        layer.bindTooltip(
+          `<div style="padding: 8px 12px; font-family: system-ui, sans-serif;">
+            <div style="font-weight: 600; font-size: 13px; color: #1e293b;">${feature.properties.name}</div>
+            <div style="font-size: 11px; color: #64748b; margin-top: 4px;">Kasus: ${feature.properties.crimeCount}</div>
+            <div style="font-size: 11px; color: ${feature.properties.color}; margin-top: 2px;">Tingkat: ${feature.properties.crimeRate}</div>
+          </div>`,
+          { sticky: true, className: 'custom-tooltip' }
+        ).openTooltip();
+      },
+      mouseout: (e) => {
+        setHoveredRegion(null);
+        if (geoJsonRef.current) {
+          geoJsonRef.current.resetStyle(e.target);
+        }
+        layer.closeTooltip();
+      },
+    });
+  };
+
+  return (
+    <div className="relative w-full h-full rounded-xl overflow-hidden shadow-lg">
+      <MapContainer
+        center={[-6.2, 106.85]}
+        zoom={11}
+        className="w-full h-full"
+        zoomControl={true}
+        style={{ background: '#e2e8f0' }}
+      >
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <GeoJSON
+          ref={geoJsonRef}
+          data={geoJsonData}
+          style={style}
+          onEachFeature={onEachFeature}
+        />
+        <Legend />
+      </MapContainer>
+    </div>
+  );
+};
+
+export default CrimeMap;
