@@ -46,7 +46,7 @@ const StatCards = ({ stats }) => {
       color: 'from-sky-500 to-sky-600',
       textColor: 'text-sky-600',
       bgColor: 'bg-sky-50'
-    }
+    },
   ];
 
   return (
