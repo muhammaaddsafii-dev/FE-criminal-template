@@ -1,13 +1,21 @@
-import React from 'react';
-import { Card, CardContent } from './ui/card';
-import { TrendingUp, TrendingDown, Minus, AlertTriangle, Shield, FileCheck, Clock } from 'lucide-react';
+import React from "react";
+import { Card, CardContent } from "./ui/card";
+import {
+  TrendingUp,
+  TrendingDown,
+  Minus,
+  AlertTriangle,
+  Shield,
+  FileCheck,
+  Clock,
+} from "lucide-react";
 
 const StatCards = ({ stats }) => {
   const getTrendIcon = (trend) => {
     switch (trend) {
-      case 'up':
+      case "up":
         return <TrendingUp className="w-4 h-4 text-red-500" />;
-      case 'down':
+      case "down":
         return <TrendingDown className="w-4 h-4 text-emerald-500" />;
       default:
         return <Minus className="w-4 h-4 text-slate-400" />;
@@ -16,44 +24,44 @@ const StatCards = ({ stats }) => {
 
   const cards = [
     {
-      title: 'Total Kasus',
+      title: "Total Kasus",
       value: stats.totalCases,
       icon: <AlertTriangle className="w-5 h-5" />,
-      color: 'from-rose-500 to-rose-600',
-      textColor: 'text-rose-600',
-      bgColor: 'bg-rose-50'
+      color: "from-rose-500 to-rose-600",
+      textColor: "text-rose-600",
+      bgColor: "bg-rose-50",
     },
     {
-      title: 'Kasus Selesai',
+      title: "Kasus Selesai",
       value: stats.solvedCases,
       icon: <FileCheck className="w-5 h-5" />,
-      color: 'from-emerald-500 to-emerald-600',
-      textColor: 'text-emerald-600',
-      bgColor: 'bg-emerald-50'
+      color: "from-emerald-500 to-emerald-600",
+      textColor: "text-emerald-600",
+      bgColor: "bg-emerald-50",
     },
     {
-      title: 'Dalam Proses',
+      title: "Dalam Proses",
       value: stats.pendingCases,
       icon: <Clock className="w-5 h-5" />,
-      color: 'from-amber-500 to-amber-600',
-      textColor: 'text-amber-600',
-      bgColor: 'bg-amber-50'
+      color: "from-amber-500 to-amber-600",
+      textColor: "text-amber-600",
+      bgColor: "bg-amber-50",
     },
     {
-      title: 'Clearance Rate',
+      title: "Clearance Rate",
       value: `${stats.clearanceRate}%`,
       icon: <Shield className="w-5 h-5" />,
-      color: 'from-sky-500 to-sky-600',
-      textColor: 'text-sky-600',
-      bgColor: 'bg-sky-50'
-    }
+      color: "from-sky-500 to-sky-600",
+      textColor: "text-sky-600",
+      bgColor: "bg-sky-50",
+    },
   ];
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
       {cards.map((card, index) => (
-        <Card 
-          key={index} 
+        <Card
+          key={index}
           className="border-0 shadow-sm hover:shadow-md transition-all duration-300 bg-white overflow-hidden"
         >
           <CardContent className="p-4">
@@ -67,9 +75,7 @@ const StatCards = ({ stats }) => {
                 </p>
               </div>
               <div className={`p-3 rounded-xl ${card.bgColor}`}>
-                <div className={card.textColor}>
-                  {card.icon}
-                </div>
+                <div className={card.textColor}>{card.icon}</div>
               </div>
             </div>
           </CardContent>

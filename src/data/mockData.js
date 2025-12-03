@@ -9,18 +9,20 @@ export const geoJsonData = {
         name: "Jakarta Pusat",
         crimeCount: 245,
         crimeRate: "Tinggi",
-        color: "#ef4444"
+        color: "#ef4444",
       },
       geometry: {
         type: "Polygon",
-        coordinates: [[
-          [106.82, -6.17],
-          [106.88, -6.17],
-          [106.88, -6.21],
-          [106.82, -6.21],
-          [106.82, -6.17]
-        ]]
-      }
+        coordinates: [
+          [
+            [106.82, -6.17],
+            [106.88, -6.17],
+            [106.88, -6.21],
+            [106.82, -6.21],
+            [106.82, -6.17],
+          ],
+        ],
+      },
     },
     {
       type: "Feature",
@@ -29,18 +31,20 @@ export const geoJsonData = {
         name: "Jakarta Utara",
         crimeCount: 189,
         crimeRate: "Sedang",
-        color: "#f59e0b"
+        color: "#f59e0b",
       },
       geometry: {
         type: "Polygon",
-        coordinates: [[
-          [106.82, -6.10],
-          [106.95, -6.10],
-          [106.95, -6.17],
-          [106.82, -6.17],
-          [106.82, -6.10]
-        ]]
-      }
+        coordinates: [
+          [
+            [106.82, -6.1],
+            [106.95, -6.1],
+            [106.95, -6.17],
+            [106.82, -6.17],
+            [106.82, -6.1],
+          ],
+        ],
+      },
     },
     {
       type: "Feature",
@@ -49,18 +53,20 @@ export const geoJsonData = {
         name: "Jakarta Barat",
         crimeCount: 312,
         crimeRate: "Tinggi",
-        color: "#ef4444"
+        color: "#ef4444",
       },
       geometry: {
         type: "Polygon",
-        coordinates: [[
-          [106.70, -6.15],
-          [106.82, -6.15],
-          [106.82, -6.25],
-          [106.70, -6.25],
-          [106.70, -6.15]
-        ]]
-      }
+        coordinates: [
+          [
+            [106.7, -6.15],
+            [106.82, -6.15],
+            [106.82, -6.25],
+            [106.7, -6.25],
+            [106.7, -6.15],
+          ],
+        ],
+      },
     },
     {
       type: "Feature",
@@ -69,18 +75,20 @@ export const geoJsonData = {
         name: "Jakarta Selatan",
         crimeCount: 156,
         crimeRate: "Sedang",
-        color: "#f59e0b"
+        color: "#f59e0b",
       },
       geometry: {
         type: "Polygon",
-        coordinates: [[
-          [106.78, -6.21],
-          [106.88, -6.21],
-          [106.88, -6.32],
-          [106.78, -6.32],
-          [106.78, -6.21]
-        ]]
-      }
+        coordinates: [
+          [
+            [106.78, -6.21],
+            [106.88, -6.21],
+            [106.88, -6.32],
+            [106.78, -6.32],
+            [106.78, -6.21],
+          ],
+        ],
+      },
     },
     {
       type: "Feature",
@@ -89,20 +97,22 @@ export const geoJsonData = {
         name: "Jakarta Timur",
         crimeCount: 98,
         crimeRate: "Rendah",
-        color: "#22c55e"
+        color: "#22c55e",
       },
       geometry: {
         type: "Polygon",
-        coordinates: [[
-          [106.88, -6.17],
-          [107.00, -6.17],
-          [107.00, -6.28],
-          [106.88, -6.28],
-          [106.88, -6.17]
-        ]]
-      }
-    }
-  ]
+        coordinates: [
+          [
+            [106.88, -6.17],
+            [107.0, -6.17],
+            [107.0, -6.28],
+            [106.88, -6.28],
+            [106.88, -6.17],
+          ],
+        ],
+      },
+    },
+  ],
 };
 
 // Crime statistics by district
@@ -116,7 +126,7 @@ export const crimeStatsByDistrict = {
       { name: "Perampokan", value: 45 },
       { name: "Penipuan", value: 67 },
       { name: "Kekerasan", value: 32 },
-      { name: "Lainnya", value: 12 }
+      { name: "Lainnya", value: 12 },
     ],
     monthlyTrend: [
       { month: "Jan", cases: 32 },
@@ -125,13 +135,31 @@ export const crimeStatsByDistrict = {
       { month: "Apr", cases: 41 },
       { month: "May", cases: 38 },
       { month: "Jun", cases: 45 },
-      { month: "Jul", cases: 26 }
+      { month: "Jul", cases: 26 },
     ],
     recentCases: [
-      { id: 1, type: "Pencurian", location: "Jl. Thamrin", date: "2025-07-15", status: "Proses" },
-      { id: 2, type: "Penipuan", location: "Jl. Sudirman", date: "2025-07-14", status: "Selesai" },
-      { id: 3, type: "Perampokan", location: "Jl. Gatot Subroto", date: "2025-07-13", status: "Proses" }
-    ]
+      {
+        id: 1,
+        type: "Pencurian",
+        location: "Jl. Thamrin",
+        date: "2025-07-15",
+        status: "Proses",
+      },
+      {
+        id: 2,
+        type: "Penipuan",
+        location: "Jl. Sudirman",
+        date: "2025-07-14",
+        status: "Selesai",
+      },
+      {
+        id: 3,
+        type: "Perampokan",
+        location: "Jl. Gatot Subroto",
+        date: "2025-07-13",
+        status: "Proses",
+      },
+    ],
   },
   2: {
     totalCases: 189,
@@ -142,7 +170,7 @@ export const crimeStatsByDistrict = {
       { name: "Perampokan", value: 38 },
       { name: "Penipuan", value: 45 },
       { name: "Kekerasan", value: 24 },
-      { name: "Lainnya", value: 10 }
+      { name: "Lainnya", value: 10 },
     ],
     monthlyTrend: [
       { month: "Jan", cases: 25 },
@@ -151,13 +179,31 @@ export const crimeStatsByDistrict = {
       { month: "Apr", cases: 30 },
       { month: "May", cases: 32 },
       { month: "Jun", cases: 28 },
-      { month: "Jul", cases: 24 }
+      { month: "Jul", cases: 24 },
     ],
     recentCases: [
-      { id: 1, type: "Pencurian", location: "Jl. Pluit", date: "2025-07-15", status: "Proses" },
-      { id: 2, type: "Kekerasan", location: "Jl. Kelapa Gading", date: "2025-07-14", status: "Selesai" },
-      { id: 3, type: "Penipuan", location: "Jl. Sunter", date: "2025-07-12", status: "Proses" }
-    ]
+      {
+        id: 1,
+        type: "Pencurian",
+        location: "Jl. Pluit",
+        date: "2025-07-15",
+        status: "Proses",
+      },
+      {
+        id: 2,
+        type: "Kekerasan",
+        location: "Jl. Kelapa Gading",
+        date: "2025-07-14",
+        status: "Selesai",
+      },
+      {
+        id: 3,
+        type: "Penipuan",
+        location: "Jl. Sunter",
+        date: "2025-07-12",
+        status: "Proses",
+      },
+    ],
   },
   3: {
     totalCases: 312,
@@ -168,7 +214,7 @@ export const crimeStatsByDistrict = {
       { name: "Perampokan", value: 62 },
       { name: "Penipuan", value: 78 },
       { name: "Kekerasan", value: 35 },
-      { name: "Lainnya", value: 12 }
+      { name: "Lainnya", value: 12 },
     ],
     monthlyTrend: [
       { month: "Jan", cases: 45 },
@@ -177,13 +223,31 @@ export const crimeStatsByDistrict = {
       { month: "Apr", cases: 52 },
       { month: "May", cases: 47 },
       { month: "Jun", cases: 44 },
-      { month: "Jul", cases: 34 }
+      { month: "Jul", cases: 34 },
     ],
     recentCases: [
-      { id: 1, type: "Perampokan", location: "Jl. Kembangan", date: "2025-07-15", status: "Proses" },
-      { id: 2, type: "Pencurian", location: "Jl. Cengkareng", date: "2025-07-14", status: "Selesai" },
-      { id: 3, type: "Penipuan", location: "Jl. Grogol", date: "2025-07-13", status: "Proses" }
-    ]
+      {
+        id: 1,
+        type: "Perampokan",
+        location: "Jl. Kembangan",
+        date: "2025-07-15",
+        status: "Proses",
+      },
+      {
+        id: 2,
+        type: "Pencurian",
+        location: "Jl. Cengkareng",
+        date: "2025-07-14",
+        status: "Selesai",
+      },
+      {
+        id: 3,
+        type: "Penipuan",
+        location: "Jl. Grogol",
+        date: "2025-07-13",
+        status: "Proses",
+      },
+    ],
   },
   4: {
     totalCases: 156,
@@ -194,7 +258,7 @@ export const crimeStatsByDistrict = {
       { name: "Perampokan", value: 28 },
       { name: "Penipuan", value: 42 },
       { name: "Kekerasan", value: 20 },
-      { name: "Lainnya", value: 8 }
+      { name: "Lainnya", value: 8 },
     ],
     monthlyTrend: [
       { month: "Jan", cases: 20 },
@@ -203,13 +267,31 @@ export const crimeStatsByDistrict = {
       { month: "Apr", cases: 25 },
       { month: "May", cases: 28 },
       { month: "Jun", cases: 24 },
-      { month: "Jul", cases: 19 }
+      { month: "Jul", cases: 19 },
     ],
     recentCases: [
-      { id: 1, type: "Pencurian", location: "Jl. Kemang", date: "2025-07-15", status: "Selesai" },
-      { id: 2, type: "Penipuan", location: "Jl. Fatmawati", date: "2025-07-14", status: "Proses" },
-      { id: 3, type: "Kekerasan", location: "Jl. Cilandak", date: "2025-07-12", status: "Selesai" }
-    ]
+      {
+        id: 1,
+        type: "Pencurian",
+        location: "Jl. Kemang",
+        date: "2025-07-15",
+        status: "Selesai",
+      },
+      {
+        id: 2,
+        type: "Penipuan",
+        location: "Jl. Fatmawati",
+        date: "2025-07-14",
+        status: "Proses",
+      },
+      {
+        id: 3,
+        type: "Kekerasan",
+        location: "Jl. Cilandak",
+        date: "2025-07-12",
+        status: "Selesai",
+      },
+    ],
   },
   5: {
     totalCases: 98,
@@ -220,7 +302,7 @@ export const crimeStatsByDistrict = {
       { name: "Perampokan", value: 15 },
       { name: "Penipuan", value: 28 },
       { name: "Kekerasan", value: 12 },
-      { name: "Lainnya", value: 5 }
+      { name: "Lainnya", value: 5 },
     ],
     monthlyTrend: [
       { month: "Jan", cases: 12 },
@@ -229,14 +311,32 @@ export const crimeStatsByDistrict = {
       { month: "Apr", cases: 16 },
       { month: "May", cases: 18 },
       { month: "Jun", cases: 15 },
-      { month: "Jul", cases: 13 }
+      { month: "Jul", cases: 13 },
     ],
     recentCases: [
-      { id: 1, type: "Pencurian", location: "Jl. Cakung", date: "2025-07-15", status: "Selesai" },
-      { id: 2, type: "Penipuan", location: "Jl. Pulogadung", date: "2025-07-13", status: "Selesai" },
-      { id: 3, type: "Perampokan", location: "Jl. Duren Sawit", date: "2025-07-11", status: "Proses" }
-    ]
-  }
+      {
+        id: 1,
+        type: "Pencurian",
+        location: "Jl. Cakung",
+        date: "2025-07-15",
+        status: "Selesai",
+      },
+      {
+        id: 2,
+        type: "Penipuan",
+        location: "Jl. Pulogadung",
+        date: "2025-07-13",
+        status: "Selesai",
+      },
+      {
+        id: 3,
+        type: "Perampokan",
+        location: "Jl. Duren Sawit",
+        date: "2025-07-11",
+        status: "Proses",
+      },
+    ],
+  },
 };
 
 // Overall statistics
@@ -245,20 +345,32 @@ export const overallStats = {
   solvedCases: 781,
   pendingCases: 219,
   clearanceRate: 78.1,
+
+  // Data untuk District Crime Chart
+  districtData: [
+    { name: "Jakarta Barat", total: 312 },
+    { name: "Jakarta Pusat", total: 245 },
+    { name: "Jakarta Utara", total: 189 },
+    { name: "Jakarta Selatan", total: 156 },
+    { name: "Jakarta Timur", total: 98 },
+  ],
+
   topCrimeTypes: [
     { type: "Pencurian", count: 382, percentage: 38.2 },
     { type: "Penipuan", count: 260, percentage: 26.0 },
     { type: "Perampokan", count: 188, percentage: 18.8 },
     { type: "Kekerasan", count: 123, percentage: 12.3 },
-    { type: "Lainnya", count: 47, percentage: 4.7 }
+    { type: "Lainnya", count: 47, percentage: 4.7 },
   ],
+
   hotspots: [
     { area: "Jakarta Barat", cases: 312, trend: "up" },
     { area: "Jakarta Pusat", cases: 245, trend: "stable" },
     { area: "Jakarta Utara", cases: 189, trend: "down" },
     { area: "Jakarta Selatan", cases: 156, trend: "down" },
-    { area: "Jakarta Timur", cases: 98, trend: "stable" }
+    { area: "Jakarta Timur", cases: 98, trend: "stable" },
   ],
+
   recentIncidents: [
     {
       id: 1,
@@ -266,7 +378,7 @@ export const overallStats = {
       location: "Jl. Kembangan, Jakarta Barat",
       date: "2025-07-15",
       type: "Perampokan",
-      severity: "high"
+      severity: "high",
     },
     {
       id: 2,
@@ -274,7 +386,7 @@ export const overallStats = {
       location: "Jl. Thamrin, Jakarta Pusat",
       date: "2025-07-15",
       type: "Pencurian",
-      severity: "medium"
+      severity: "medium",
     },
     {
       id: 3,
@@ -282,7 +394,7 @@ export const overallStats = {
       location: "Jl. Sudirman, Jakarta Pusat",
       date: "2025-07-14",
       type: "Penipuan",
-      severity: "medium"
+      severity: "medium",
     },
     {
       id: 4,
@@ -290,7 +402,7 @@ export const overallStats = {
       location: "Jl. Pluit, Jakarta Utara",
       date: "2025-07-14",
       type: "Kekerasan",
-      severity: "high"
+      severity: "high",
     },
     {
       id: 5,
@@ -298,23 +410,119 @@ export const overallStats = {
       location: "Jl. Grogol, Jakarta Barat",
       date: "2025-07-13",
       type: "Pencurian",
-      severity: "high"
-    }
-  ]
+      severity: "high",
+    },
+  ],
 };
 
 // Crime data for table
 export const crimeTableData = [
-  { id: 1, district: "Jakarta Pusat", type: "Pencurian", location: "Jl. Thamrin", date: "2025-07-15", status: "Proses", reportNumber: "LP/245/VII/2025" },
-  { id: 2, district: "Jakarta Pusat", type: "Penipuan", location: "Jl. Sudirman", date: "2025-07-14", status: "Selesai", reportNumber: "LP/244/VII/2025" },
-  { id: 3, district: "Jakarta Barat", type: "Perampokan", location: "Jl. Kembangan", date: "2025-07-15", status: "Proses", reportNumber: "LP/312/VII/2025" },
-  { id: 4, district: "Jakarta Barat", type: "Pencurian", location: "Jl. Cengkareng", date: "2025-07-14", status: "Selesai", reportNumber: "LP/311/VII/2025" },
-  { id: 5, district: "Jakarta Utara", type: "Kekerasan", location: "Jl. Kelapa Gading", date: "2025-07-14", status: "Proses", reportNumber: "LP/189/VII/2025" },
-  { id: 6, district: "Jakarta Selatan", type: "Pencurian", location: "Jl. Kemang", date: "2025-07-15", status: "Selesai", reportNumber: "LP/156/VII/2025" },
-  { id: 7, district: "Jakarta Timur", type: "Penipuan", location: "Jl. Pulogadung", date: "2025-07-13", status: "Selesai", reportNumber: "LP/098/VII/2025" },
-  { id: 8, district: "Jakarta Pusat", type: "Perampokan", location: "Jl. Gatot Subroto", date: "2025-07-13", status: "Proses", reportNumber: "LP/243/VII/2025" },
-  { id: 9, district: "Jakarta Barat", type: "Penipuan", location: "Jl. Grogol", date: "2025-07-13", status: "Proses", reportNumber: "LP/310/VII/2025" },
-  { id: 10, district: "Jakarta Selatan", type: "Penipuan", location: "Jl. Fatmawati", date: "2025-07-14", status: "Proses", reportNumber: "LP/155/VII/2025" },
-  { id: 11, district: "Jakarta Utara", type: "Pencurian", location: "Jl. Pluit", date: "2025-07-15", status: "Proses", reportNumber: "LP/188/VII/2025" },
-  { id: 12, district: "Jakarta Timur", type: "Perampokan", location: "Jl. Duren Sawit", date: "2025-07-11", status: "Proses", reportNumber: "LP/097/VII/2025" }
+  {
+    id: 1,
+    district: "Jakarta Pusat",
+    type: "Pencurian",
+    location: "Jl. Thamrin",
+    date: "2025-07-15",
+    status: "Proses",
+    reportNumber: "LP/245/VII/2025",
+  },
+  {
+    id: 2,
+    district: "Jakarta Pusat",
+    type: "Penipuan",
+    location: "Jl. Sudirman",
+    date: "2025-07-14",
+    status: "Selesai",
+    reportNumber: "LP/244/VII/2025",
+  },
+  {
+    id: 3,
+    district: "Jakarta Barat",
+    type: "Perampokan",
+    location: "Jl. Kembangan",
+    date: "2025-07-15",
+    status: "Proses",
+    reportNumber: "LP/312/VII/2025",
+  },
+  {
+    id: 4,
+    district: "Jakarta Barat",
+    type: "Pencurian",
+    location: "Jl. Cengkareng",
+    date: "2025-07-14",
+    status: "Selesai",
+    reportNumber: "LP/311/VII/2025",
+  },
+  {
+    id: 5,
+    district: "Jakarta Utara",
+    type: "Kekerasan",
+    location: "Jl. Kelapa Gading",
+    date: "2025-07-14",
+    status: "Proses",
+    reportNumber: "LP/189/VII/2025",
+  },
+  {
+    id: 6,
+    district: "Jakarta Selatan",
+    type: "Pencurian",
+    location: "Jl. Kemang",
+    date: "2025-07-15",
+    status: "Selesai",
+    reportNumber: "LP/156/VII/2025",
+  },
+  {
+    id: 7,
+    district: "Jakarta Timur",
+    type: "Penipuan",
+    location: "Jl. Pulogadung",
+    date: "2025-07-13",
+    status: "Selesai",
+    reportNumber: "LP/098/VII/2025",
+  },
+  {
+    id: 8,
+    district: "Jakarta Pusat",
+    type: "Perampokan",
+    location: "Jl. Gatot Subroto",
+    date: "2025-07-13",
+    status: "Proses",
+    reportNumber: "LP/243/VII/2025",
+  },
+  {
+    id: 9,
+    district: "Jakarta Barat",
+    type: "Penipuan",
+    location: "Jl. Grogol",
+    date: "2025-07-13",
+    status: "Proses",
+    reportNumber: "LP/310/VII/2025",
+  },
+  {
+    id: 10,
+    district: "Jakarta Selatan",
+    type: "Penipuan",
+    location: "Jl. Fatmawati",
+    date: "2025-07-14",
+    status: "Proses",
+    reportNumber: "LP/155/VII/2025",
+  },
+  {
+    id: 11,
+    district: "Jakarta Utara",
+    type: "Pencurian",
+    location: "Jl. Pluit",
+    date: "2025-07-15",
+    status: "Proses",
+    reportNumber: "LP/188/VII/2025",
+  },
+  {
+    id: 12,
+    district: "Jakarta Timur",
+    type: "Perampokan",
+    location: "Jl. Duren Sawit",
+    date: "2025-07-11",
+    status: "Proses",
+    reportNumber: "LP/097/VII/2025",
+  },
 ];
